@@ -77,8 +77,10 @@
    background-color: #F0EEFF;
    padding: 20px 20px;
    border-radius: 10px;
-   width: 900px;
-   height: 450px;
+   width: 950px;
+   height: 550px;
+   overflow: hidden;
+   position: relative;
    
 }
 
@@ -87,11 +89,220 @@
    font-size: 13px;
 }
 
+.schooltitle {
+   font-size: 45px;
+   font-family: 'Cairo', sans-serif;
+}
+
 .studenttext {
-   font-size: 25px;
+   font-size: 30px;
    font-weight: 550;
+}
+
+.textblock {
+   white-space: pre-line;
+}
+
+.buttoncolorhome {
+   background-color: #6C5DD3 !important;
+   border-color: #6C5DD3 !important;
+   border-radius: 10px !important;
+   transition: transform 0.3s ease-in-out !important;
+   box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+.buttoncolorhome:hover {
+   transform: translate(0, -0.5em) !important;
+}
+
+.buttoncolorhome2{
+   border-color:  #AAAAAA !important;
+   background-color: #F0EEFF !important;
+   color: black !important;
+   border-radius: 10px !important;
+   transition: transform 0.3s ease-in-out !important;
+}
+
+.buttoncolorhome2:hover {
+   transform: translate(0, -0.5em) !important;
+}
+
+.circle {
+  width: 12px;
+  height: 12px;
+  background-color: #D7D0FB;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.circle.active {
+  background-color: #6C5DD3;
+  transform: scale(1.2);
+}
+
+.pagination {
+   margin-top: 30px;
+}
+
+.homecard::before,
+.homecard::after {
+  content: ""; 
+  position: absolute; 
+  border-radius: 50%; 
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+.homecard::before {
+   top: -250px; 
+   left: 550px; 
+   width: 500px;
+   height: 500px;
+   background-color: #FF9F59;
+   animation-name: topCircle;
+}
+
+.homecard::after{
+  top: 440px; 
+  left: 420px; 
+  width: 300px;
+  height: 300px;
+  background-color: #D7D2F2;
+  animation-name: bottomCircle;
+}
+
+@keyframes topCircle {
+  0% {
+    background-color: #FF9F59;
+  }
+  50% {
+    background-color: #D7D2F2;
+  }
+  100% {
+    background-color: #FF9F59;
+  }
+}
+
+@keyframes bottomCircle{
+  0% {
+    background-color: #D7D2F2;
+  }
+  50% {
+    background-color: #FF9F59;
+  }
+  100% {
+    background-color: #D7D2F2;
+  }
+}
+
+.homecard2 {
+   background-color: #9C9C9C;
+   width: 440px;
+   height: 550px;
+   padding: 20px 20px;
+   border-radius: 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.cardtitle2 {
+   color: white;
+   font-weight: 700;
+   font-family: 'Cairo', sans-serif;
+   font-size: 37px;
+   margin-top: 10px;
+}
+
+.cardtext2 {
+   color: white;
+   font-family: 'Cairo', sans-serif;
+   margin-top: -10px;
+}
+
+.imagecontent {
+  border: 2px solid white;
+  width: 220px;
+  height: 250px;
+  border-radius: 15px;
+  box-shadow: 5px 10px 10px rgba(255, 255, 255, 1);
+  position: relative;
+  overflow: hidden;
+   height: 100%;
+}
+
+.booktitle {
+   padding-top: 15px;
+   color: white;
+   font-weight: 700;
+   font-size: 20px;
+   font-family: 'Cairo', sans-serif;
+}
+
+.booktext {
+   font-family: 'Cairo', sans-serif;
+   color:rgb(255, 255, 255, 0.6);
+   font-size: 14px;
+   margin-top: -20px;
+}
+
+.bookbutton {
+   padding: 10px 0px !important;
+   border-radius: 10px !important;
+   background-color: #ffffff !important;
+   border-color: #ffffff !important;
+   color: black !important;
+   font-family: 'Cairo', sans-serif !important;
+   box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.bookbutton:hover{
+   transition: transform 0.3s ease-in-out !important;
+}
+
+.bookbutton:hover {
+   transform: translate(0, -0.5em) !important;
+}
+
+.carousel,
+.carousel-inner,
+.carousel-item {
+  height: 100%;
+}
+
+.carouselimage {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.truckicon {
+   color:#6C5DD3;
+   background-color: #F0EEFF;
+   padding: 10px 10px;
+   border-radius: 10px;
+   width: 48px;
+   height: 48px;
+}
+
+.truckiconpadding {
+   margin-left: 20px;
+}
+
+.icontitle {
+   font-size: 18px;
+   font-family: 'Cairo', sans-serif
+}
+
+.iconsubtitle {
+   font-size: 12px;
+   font-family: 'Cairo', sans-serif
 }
 
 
 
- 
+
+
+
