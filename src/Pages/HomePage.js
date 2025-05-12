@@ -18,6 +18,7 @@ function HomePage() {
                 tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim<br /> veniam, quis nostrud exercitation ullamco laboris
               </small>
+              
             </div>
           </Col>
           <Col xs={6} md={4} className="d-flex align-items-center">
