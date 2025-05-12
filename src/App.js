@@ -1,11 +1,12 @@
 import './App.css';
-import NavbarScroll from './Composants/Navbar';
+
+import HomePage from './Pages/HomePage';
 // ll
 
 function App() {
   return (
     <div>
-      <NavbarScroll/>
+      <HomePage/>
     </div>
   );
 }
