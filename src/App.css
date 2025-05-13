@@ -103,6 +103,11 @@
    white-space: pre-line;
 }
 
+.rightarrowicon {
+   width: 20px;
+   padding-left: 10px;
+}
+
 .buttoncolorhome {
    background-color: #6C5DD3 !important;
    border-color: #6C5DD3 !important;
@@ -301,6 +306,252 @@
    font-family: 'Cairo', sans-serif
 }
 
+.orangerectangle {
+   background-color: rgba(255, 117, 76, 0.1);
+   width: 700px;
+   height: 443px;
+   border-radius: 10px;
+   padding: 20px 20px;
+   overflow: hidden;
+   position: relative;
+}
+
+.orangerectangle::before,
+.orangerectangle::after {
+  content: ""; 
+  position: absolute; 
+  border-radius: 50%; 
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+.orangerectangle::before {
+   top: -150px; 
+   left: 470px; 
+   width: 300px;
+   height: 300px;
+   background-color: rgba(255, 231, 212, 1);
+   animation-name: orangeRectangleTopCircle;
+   z-index: 0;
+}
+
+.orangerectangle:after {
+  top: 350px; 
+  left: -50px; 
+  width: 210px;
+  height: 210px;
+  background-color: rgba(245, 220, 200, 1);
+  animation-name: orangeRectangleBottomCircle;
+  z-index: 0;
+}
+
+.orangerectangletitle {
+   z-index: 1;
+   position: relative;
+   font-family: 'Cairo', sans-serif;
+   font-weight: bold;
+   font-size: 30px;
+   padding-top: 20px;
+}
+
+.orangerectangletext {
+   z-index: 1;
+   position: relative;
+   font-family: 'Cairo', sans-serif;
+   font-size: 15px;
+   padding-top: 20px;
+}
+
+.rectangle1 {
+   border: white solid 4px;
+   width: 200px;
+   height: 250px;
+   border-radius: 10px;
+   z-index: 1;
+   box-shadow: 5px 10px 10px rgb(0, 0, 0);
+   overflow: hidden;
+}
+
+@keyframes orangeRectangleTopCircle {
+  0% {
+    background-color: rgba(255, 231, 212, 1);
+  }
+  50% {
+    background-color: rgba(215, 235, 255, 1);
+  }
+  100% {
+    background-color: rgba(255, 231, 212, 1);
+  }
+}
+
+@keyframes orangeRectangleBottomCircle {
+  0% {
+    background-color: rgba(245, 220, 200, 1);
+  }
+  50% {
+    background-color: rgba(217, 235, 253, 1);
+  }
+  100% {
+    background-color: rgba(245, 220, 200, 1);
+  }
+}
+
+.arrowicon {
+   cursor: pointer;
+   z-index: 1;
+}
+
+.bluerectangle {
+   background-color: rgba(61, 162, 255, 0.1);
+   width: 700px;
+   height: 443px;
+   border-radius: 10px;
+   padding: 20px 20px;
+   overflow: hidden;
+   position: relative;
+}
+
+.bluerectangle::before,
+.bluerectangle::after {
+  content: ""; 
+  position: absolute; 
+  border-radius: 50%; 
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+.bluerectangle::before {
+   top: -180px; 
+   left: 300px; 
+   width: 300px;
+   height: 300px;
+   background-color: rgba(215, 235, 255, 1);
+   animation-name: blueRectangleTopCircle;
+   z-index: 0;
+}
+
+.bluerectangle:after {
+  top: 150px; 
+  left: -130px; 
+  width: 600px;
+  height: 600px;
+  background-color: rgba(217, 235, 253, 1);
+  animation-name: blueRectangleBottomCircle;
+  z-index: 0;
+}
+
+@keyframes blueRectangleTopCircle {
+  0% {
+    background-color: rgba(217, 235, 253, 1);
+  }
+  50% {
+    background-color: rgba(255, 231, 212, 1);
+  }
+  100% {
+    background-color: rgba(217, 235, 253, 1);
+  }
+}
+
+@keyframes blueRectangleBottomCircle {
+  0% {
+    background-color: rgba(217, 235, 253, 1);
+  }
+  50% {
+    background-color: rgba(245, 220, 200, 1);
+  }
+  100% {
+    background-color: rgba(217, 235, 253, 1);
+  }
+}
+
+.offerstitle {
+   font-weight: bold;
+   font-family: 'Cairo', sans-serif;
+   font-size: 40px;
+   padding-top: 30px;
+}
+
+.offerstext {
+   font-family: 'Cairo', sans-serif;
+}
+
+.cardimg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-height: 300px;
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+  overflow: hidden;
+  max-height: 700px;
+  height: 100%;
+  border: 3px rgba(240, 240, 240, 1) solid !important;
+  border-radius: 10px !important;
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.purchaseicon {
+   padding-right: 10px;
+}
+
+.moneysize {
+   font-size: 25px;
+}
+
+.cardtitlebook {
+   font-weight: bold !important;
+   font-family: 'Cairo', sans-serif !important;
+   font-size: 22px !important;
+}
+
+.genre {
+   padding-top: 10px;
+}
+
+.cardtitletext {
+   font-family: 'Cairo', sans-serif !important;
+}
+
+.cardtitleauthor {
+   font-family: 'Cairo', sans-serif !important;
+   font-weight: bold !important;
+   font-size: 18px !important;
+}
+
+.genre2 {
+   background-color: rgba(240, 238, 255, 1);
+   color: rgba(108, 93, 211, 1);
+   font-weight: bold;
+   font-family: 'Cairo', sans-serif;
+   padding: 5px 15px;
+   border-radius: 20px;
+}
+
+.moneysize2 {
+   font-size: 25px;
+   color: rgba(170, 170, 170, 1);
+}
+
+.superarrow {
+   color: rgba(108, 93, 211, 1);
+   height: 30px !important;
+}
+
+.superarrowcircle {
+   background-color: rgba(240, 238, 255, 1);
+   padding: 15px 15px;
+   border-radius: 50px;
+   cursor: pointer;
+}
+
+.middlecard{
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(108, 93, 211, 1);
+  transition: all 0.3s ease-in-out;
+}
 
 
 
