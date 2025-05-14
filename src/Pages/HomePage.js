@@ -1,5 +1,8 @@
 import { useState } from "react";
 import NavbarScroll from "../Composants/Navbar";
+import CountdownTest from "../Composants/Countdown";
+import ButtonTest from "../Composants/Button/ButtonTest";
+import SpecialCards from "../Composants/Cards/Cards";
 import { Container, Row, Col, Button, Carousel, Card } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,7 +13,8 @@ import {
   faRightLong,
   faArrowRight,
   faCartShopping,
-  faLeftLong
+  faLeftLong,
+  faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 
 import photo1 from "../images/Pinata1.jpg";
@@ -122,24 +126,26 @@ function HomePage() {
                   enim ad minim veniam, quis nostrud exercitation ullamco laboris.`}
                 </small>
               </div>
-              <div>
-                <Button className="buttoncolorhome py-2 px-4 mt-4">
-                  Get the deal <FontAwesomeIcon icon={faArrowRight} className="rightarrowicon" />
-                </Button>
-                <Button className="buttoncolorhome2 py-2 px-4 mt-4 ms-4">
-                  See other promos
-                </Button>
+              <div className="d-flex">
+                <div className="buttongetthedeal">
+                  <Button className="buttoncolorhome">
+                    Get the deal <FontAwesomeIcon icon={faArrowRight} className="rightarrowicon" />
+                  </Button>
+                </div>
+                <div className="py-2 mt-4  buttonscale">
+                  <ButtonTest /></div>
               </div>
-              <div className="d-flex gap-3 py-5 pagination">
-                {slides.map((_, index) => (
-                  <div
-                    key={index}
-                    className={index === activeIndex ? "circle active" : "circle"}
-                    onClick={() => setActiveIndex(index)}
-                  />
-                ))}
-              </div>
-            </div>
+              <div className="">
+                <div className="d-flex gap-3  pagination">
+                  {slides.map((_, index) => (
+                    <div
+                      key={index}
+                      className={index === activeIndex ? "circle active" : "circle"}
+                      onClick={() => setActiveIndex(index)}
+                    />
+                  ))}
+                </div>
+              </div></div>
           </Col>
 
           <Col xs={12} md={3} className="d-flex align-items-center">
@@ -198,12 +204,13 @@ function HomePage() {
               <div className="d-flex gap-4 align-items-center justify-content-center">
                 <div className="rectangle1">{renderCarousel()}</div>
                 <div className="rectangle1">{renderCarousel()}</div>
-                <FontAwesomeIcon
-                  icon={faRightLong}
-                  size="2xl"
-                  className="arrowicon"
-                  onClick={handleArrowClick}
-                />
+                <div className="arrowiconcircle">
+                  <FontAwesomeIcon
+                    icon={faChevronRight}
+                    size="2xl"
+                    className="arrowicon"
+                    onClick={handleArrowClick}
+                  /></div>
               </div>
             </div>
           </Col>
@@ -218,12 +225,13 @@ function HomePage() {
               <div className="d-flex gap-4 align-items-center justify-content-center">
                 <div className="rectangle1">{renderCarousel()}</div>
                 <div className="rectangle1">{renderCarousel()}</div>
-                <FontAwesomeIcon
-                  icon={faRightLong}
-                  size="2xl"
-                  className="arrowicon"
-                  onClick={handleArrowClick}
-                />
+                <div className="arrowiconcircle">
+                  <FontAwesomeIcon
+                    icon={faChevronRight}
+                    size="2xl"
+                    className="arrowicon"
+                    onClick={handleArrowClick}
+                  /></div>
               </div>
             </div>
           </Col>
@@ -240,46 +248,49 @@ function HomePage() {
         </Row>
 
         <Row className="py-5">
-          {getVisibleCards().map((card, index) => (
-            <Col key={index} xs={12} md={4} className="d-flex justify-content-center align-items-center">
-              <Card className={`card ${card.isCenter ? "middlecard" : ""}`}>
-                <Card.Img variant="top" src={card.src} className="cardimg" />
-                <Card.Body>
-                  <Card.Title className="cardtitlebook">{card.title}</Card.Title>
-                  <Card.Text>
-                    <div className="genre d-flex gap-2">
-                      <div className="genre2">
-                        Biography
-                      </div>
-                      <div className="genre2">
-                        Thriller
-                      </div>
-                      <div className="genre2">
-                        Horror
-                      </div>
-                    </div>
-                  </Card.Text>
-                  <Card.Text className="cardtitletext">
-                    Some quick example text to build on the card title and make up the
-                    bulk of the card's content.
-                  </Card.Text>
-                  <Card.Text className="cardtitleauthor">
-                    Kevin Smiley
-                  </Card.Text>
-                  <div className="d-flex gap-5">
-                    <Button className="buttoncolorhome py-2 px-4">
-                      <FontAwesomeIcon icon={faCartShopping} className="purchaseicon" />Add to Cart
-                    </Button>
-                    <div className="pt-2">
-                      <b className="moneysize">$18.78</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <span className="text-decoration-line-through moneysize2">$25</span>
-                    </div>
-                  </div>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
+          {getVisibleCards().map((card, index) => {
+            const isMobileOnly = !card.isCenter;
 
+            return (
+              <Col key={index} xs={12} md={4} className={`d-flex justify-content-center align-items-center ${isMobileOnly ? "d-none d-md-flex" : ""}`}>
+                <Card className={`card ${card.isCenter ? "middlecard" : ""}`}>
+                  <Card.Img variant="top" src={card.src} className="cardimg" />
+                  <Card.Body>
+                    <Card.Title className="cardtitlebook">{card.title}</Card.Title>
+                    <Card.Text>
+                      <div className="genre d-flex gap-2">
+                        <div className="genre2">
+                          Biography
+                        </div>
+                        <div className="genre2">
+                          Thriller
+                        </div>
+                        <div className="genre2">
+                          Horror
+                        </div>
+                      </div>
+                    </Card.Text>
+                    <Card.Text className="cardtitletext">
+                      Some quick example text to build on the card title and make up the
+                      bulk of the card's content.
+                    </Card.Text>
+                    <Card.Text className="cardtitleauthor">
+                      Kevin Smiley
+                    </Card.Text>
+                    <div className="d-flex gap-5">
+                      <Button className="buttoncolorhome py-2 px-4">
+                        <FontAwesomeIcon icon={faCartShopping} className="purchaseicon" />Add to Cart
+                      </Button>
+                      <div className="pt-2">
+                        <b className="moneysize">$18.78</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="text-decoration-line-through moneysize2">$25</span>
+                      </div>
+                    </div>
+                  </Card.Body>
+                </Card>
+              </Col>
+            );
+          })}
           <div className="py-5 d-flex justify-content-center align-items-center gap-5">
             <div className="superarrowcircle" onClick={handlePrev}>
               <FontAwesomeIcon icon={faLeftLong} className="superarrow" />
@@ -288,7 +299,159 @@ function HomePage() {
               <FontAwesomeIcon icon={faRightLong} className="superarrow" />
             </div>
           </div>
-
+        </Row>
+        <Row>
+          <Col className="justify-content-center align-items-center text-center py-2">
+            <h3 className="flashtitle">Flash Sale</h3>
+            <p className="textblock flashtext">
+              {`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.`}</p>
+            <CountdownTest />
+          </Col>
+        </Row>
+        <Row className="py-5">
+          <Col xs={12} md={3} className="mb-5 mb-md-0">
+            <div className="d-flex flex-column align-items-center">
+              <SpecialCards />
+              <h4 className="specialcardstitle">SECONDS</h4>
+              <small className="specialcardsgenre">THRILLER</small>
+              <div><b className="specialcardsmoney">$ 54.78</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-muted text-decoration-line-through">
+                $70.00
+              </span></div>
+            </div>
+          </Col>
+          <Col xs={12} md={3} className="mb-5 mb-md-0">
+            <div className="d-flex flex-column align-items-center">
+              <SpecialCards />
+              <h4 className="specialcardstitle">REWORK</h4>
+              <small className="specialcardsgenre">DRAMA, BIOGRAPHY</small>
+              <div><b className="specialcardsmoney">$ 34.56</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-muted text-decoration-line-through">
+                $50.00
+              </span></div>
+            </div>
+          </Col>
+          <Col xs={12} md={3} className="mb-5 mb-md-0">
+            <div className="d-flex flex-column align-items-center">
+              <SpecialCards />
+              <h4 className="specialcardstitle">Such a Fun Age</h4>
+              <small className="specialcardsgenre">THRILLER</small>
+              <div><b className="specialcardsmoney">$ 14.56</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-muted text-decoration-line-through">
+                $20.00
+              </span></div>
+            </div>
+          </Col>
+          <Col xs={12} md={3} className="mb-5 mb-md-0">
+            <div className="d-flex flex-column align-items-center">
+              <SpecialCards />
+              <h4 className="specialcardstitle">Battle Drive</h4>
+              <small className="specialcardsgenre">DRAMA, BIOGRAPHY</small>
+              <div><b className="specialcardsmoney">$ 76.12</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-muted text-decoration-line-through">
+                $99.00
+              </span></div>
+            </div>
+          </Col>
+        </Row>
+        <Row className="py-5">
+          <Col>
+            <h3 className="salesbigtitle text-center text-md-start">Books on Sale</h3>
+          </Col>
+        </Row>
+        <Row className="gap-5">
+          <Col xs={12} md={2} className="d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
+            <div className="d-flex flex-column align-items-center align-items-md-start">
+              <div className="salescard"><div className="sales">50%</div></div>
+              <h4 className="specialcardstitle salestitle">Battle Drive</h4>
+              <small className="specialcardsgenre">ADVENTURE, SURVIVAL</small>
+              <div className="d-flex justify-content-between align-items-center mt-2 w-100">
+                <div className="starcolor">
+                  <FontAwesomeIcon icon={faStar} /> &nbsp; 4.7
+                </div>
+                <div className="salesmoneysize">
+                  <b className="salesmoney">$76.12</b>
+                  &nbsp;
+                  <span className="text-muted text-decoration-line-through">
+                    $99.00
+                  </span>
+                </div>
+              </div>
+            </div>
+          </Col>
+          <Col xs={12} md={2} className="d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
+            <div className="d-flex flex-column align-items-center align-items-md-start">
+              <div className="salescard"><div className="sales">50%</div></div>
+              <h4 className="specialcardstitle salestitle">Battle Drive</h4>
+              <small className="specialcardsgenre">ADVENTURE, SURVIVAL</small>
+              <div className="d-flex justify-content-between align-items-center mt-2 w-100">
+                <div className="starcolor">
+                  <FontAwesomeIcon icon={faStar} /> &nbsp; 4.7
+                </div>
+                <div className="salesmoneysize">
+                  <b className="salesmoney">$76.12</b>
+                  &nbsp;
+                  <span className="text-muted text-decoration-line-through">
+                    $99.00
+                  </span>
+                </div>
+              </div>
+            </div>
+          </Col>
+          <Col xs={12} md={2} className="d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
+            <div className="d-flex flex-column align-items-center align-items-md-start">
+              <div className="salescard"><div className="sales">50%</div></div>
+              <h4 className="specialcardstitle salestitle">Battle Drive</h4>
+              <small className="specialcardsgenre">ADVENTURE, SURVIVAL</small>
+              <div className="d-flex justify-content-between align-items-center mt-2 w-100">
+                <div className="starcolor">
+                  <FontAwesomeIcon icon={faStar} /> &nbsp; 4.7
+                </div>
+                <div className="salesmoneysize">
+                  <b className="salesmoney">$76.12</b>
+                  &nbsp;
+                  <span className="text-muted text-decoration-line-through">
+                    $99.00
+                  </span>
+                </div>
+              </div>
+            </div>
+          </Col>
+          <Col xs={12} md={2} className="d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
+            <div className="d-flex flex-column align-items-center align-items-md-start">
+              <div className="salescard"><div className="sales">50%</div></div>
+              <h4 className="specialcardstitle salestitle">Battle Drive</h4>
+              <small className="specialcardsgenre">ADVENTURE, SURVIVAL</small>
+              <div className="d-flex justify-content-between align-items-center mt-2 w-100">
+                <div className="starcolor">
+                  <FontAwesomeIcon icon={faStar} /> &nbsp; 4.7
+                </div>
+                <div className="salesmoneysize">
+                  <b className="salesmoney">$76.12</b>
+                  &nbsp;
+                  <span className="text-muted text-decoration-line-through">
+                    $99.00
+                  </span>
+                </div>
+              </div>
+            </div>
+          </Col>
+          <Col xs={12} md={2} className="d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
+            <div className="d-flex flex-column align-items-center align-items-md-start">
+              <div className="salescard"><div className="sales">50%</div></div>
+              <h4 className="specialcardstitle salestitle">Battle Drive</h4>
+              <small className="specialcardsgenre">ADVENTURE, SURVIVAL</small>
+              <div className="d-flex justify-content-between align-items-center mt-2 w-100">
+                <div className="starcolor">
+                  <FontAwesomeIcon icon={faStar} /> &nbsp; 4.7
+                </div>
+                <div className="salesmoneysize">
+                  <b className="salesmoney">$76.12</b>
+                  &nbsp;
+                  <span className="text-muted text-decoration-line-through">
+                    $99.00
+                  </span>
+                </div>
+              </div>
+            </div>
+          </Col>
         </Row>
       </Container>
     </div>
