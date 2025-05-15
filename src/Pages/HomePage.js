@@ -15,89 +15,10 @@ import {
   faCartShopping,
   faLeftLong,
   faChevronRight,
+  faBookmark,
 } from "@fortawesome/free-solid-svg-icons";
 
-import photo1 from "../images/Pinata1.jpg";
-import photo2 from "../images/Pinata4.jpg";
-import photo3 from "../images/Pinata3.jpg";
-import photo4 from "../images/Pinata6.jpg";
-import photo5 from "../images/Pinata7.jpg";
-import book1 from "../images/book1.png";
-import book2 from "../images/book2.png";
-import book3 from "../images/book3.png";
-import book4 from "../images/book4.png";
-import book5 from "../images/book5.png";
-import book6 from "../images/book6.png";
-import book7 from "../images/book7.png";
-// import book8 from "../images/book8.png";
-import book9 from "../images/book9.png";
-import book10 from "../images/book10.png";
-import book11 from "../images/book11.png";
-import book12 from "../images/book12.png";
-import book13 from "../images/book13.png";
-import book14 from "../images/book14.png";
-import book15 from "../images/book15.png";
-import book16 from "../images/book16.png";
-import book17 from "../images/book17.png";
-import book18 from "../images/book18.png";
-import book19 from "../images/book19.png";
-import book20 from "../images/book20.png";
-import book21 from "../images/book21.png";
-import book22 from "../images/book22.png";
-import book23 from "../images/book23.png";
-import book24 from "../images/book24.png";
-import book25 from "../images/book25.png";
-import book26 from "../images/book26.png";
-import book27 from "../images/book27.png";
-import book28 from "../images/book28.png";
-import book29 from "../images/book29.png";
-
-
-
-const slides = [
-  "Special 50% Off",
-  "Special 40% Off",
-  "Special 30% Off",
-  "Special 20% Off",
-];
-
-const carouselImages = [
-  { src: book1, alt: "Photo 1", title: "Soul" },
-  { src: book2, alt: "Photo 2", title: "The Story of One Love" },
-  { src: book3, alt: "Photo 3", title: "Silence" },
-  { src: book5, alt: "Photo 4", title: "Abandoned Kingdom" },
-  { src: book7, alt: "Photo 5", title: "The Story of a Girl" },
-];
-
-const recomendedImages = [
-  { src: book9, alt: "Photo 1" },
-  { src: book10, alt: "Photo 2" },
-  { src: book11, alt: "Photo 3" }
-];
-
-const recomendedImagesTwo = [
-  { src: book12, alt: "Photo 1" },
-  { src: book13, alt: "Photo 2" },
-  { src: book14, alt: "Photo 3" }
-];
-
-const popularImages = [
-  { src: book15, alt: "Photo 1" },
-  { src: book16, alt: "Photo 2" },
-  { src: book17, alt: "Photo 3" }
-];
-
-const popularImagesTwo = [
-  { src: book18, alt: "Photo 1" },
-  { src: book19, alt: "Photo 2" },
-  { src: book20, alt: "Photo 3" }
-];
-
-const cardImages = [
-  { src: book3, alt: "Photo 1", title: "Silence" },
-  { src: book4, alt: "Photo 2", title: "The Story of The Boy" },
-  { src: book6, alt: "Photo 3", title: "Book of Prayer" }
-]
+import HomePageData from "../Composants/Data/HomePageData";
 
 function HomePage() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -107,28 +28,34 @@ function HomePage() {
   const [carouselIndexThree, setCarouselIndexThree] = useState(0);
   const [carouselIndexFour, setCarouselIndexFour] = useState(0);
   const [carouselIndexFive, setCarouselIndexFive] = useState(0);
+  // const [selectedImage, setSelectedImage] = useState(HomePageData.bookImages.book30);
+  const [selectedBook, setSelectedBook] = useState(HomePageData.books[0]); // Livre par défaut
+
+  const handleImageClick = (book) => {
+    setSelectedBook(book);
+  };
 
   const getVisibleCards = () => {
-    const total = cardImages.length;
+    const total = HomePageData.cardImages.length;
     const left = (currentIndex - 1 + total) % total;
     const center = currentIndex;
     const right = (currentIndex + 1) % total;
     return [left, center, right].map((index) => ({
-      ...cardImages[index],
+      ...HomePageData.cardImages[index],
       isCenter: index === center,
     }));
   };
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % cardImages.length);
+    setCurrentIndex((prev) => (prev + 1) % HomePageData.cardImages.length);
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + cardImages.length) % cardImages.length);
+    setCurrentIndex((prev) => (prev - 1 + HomePageData.cardImages.length) % HomePageData.cardImages.length);
   };
 
   const handleArrowClick = () => {
-    setCarouselIndex((prevIndex) => (prevIndex + 1) % recomendedImages.length);
+    setCarouselIndex((prevIndex) => (prevIndex + 1) % HomePageData.recomendedImages.length);
   };
 
   const renderCarousel = () => (
@@ -139,7 +66,7 @@ function HomePage() {
       activeIndex={carouselIndex}
       onSelect={(selectedIndex) => setCarouselIndex(selectedIndex)}
     >
-      {carouselImages.map((img, index) => (
+      {HomePageData.carouselImages.map((img, index) => (
         <Carousel.Item key={index}>
           <img className="carouselimage" src={img.src} alt={img.alt} />
         </Carousel.Item>
@@ -148,7 +75,7 @@ function HomePage() {
   );
 
   const handleclick = () => {
-    setCarouselIndexTwo((prevIndex) => (prevIndex + 1) % recomendedImages.length);
+    setCarouselIndexTwo((prevIndex) => (prevIndex + 1) % HomePageData.recomendedImages.length);
   };
 
   const renderCarouselTwo = () => (
@@ -159,7 +86,7 @@ function HomePage() {
       activeIndex={carouselIndexTwo}
       onSelect={(selectedIndexTwo) => setCarouselIndexTwo(selectedIndexTwo)}
     >
-      {recomendedImages.map((img, index) => (
+      {HomePageData.recomendedImages.map((img, index) => (
         <Carousel.Item key={index}>
           <img className="carouselimage" src={img.src} alt={img.alt} />
         </Carousel.Item>
@@ -168,7 +95,7 @@ function HomePage() {
   );
 
   const handleclickTwo = () => {
-    setCarouselIndexThree((prevIndex) => (prevIndex + 1) % recomendedImagesTwo.length);
+    setCarouselIndexThree((prevIndex) => (prevIndex + 1) % HomePageData.recomendedImagesTwo.length);
   };
 
   const renderCarouselThree = () => (
@@ -179,7 +106,7 @@ function HomePage() {
       activeIndex={carouselIndexThree}
       onSelect={(selectedIndexThree) => setCarouselIndexThree(selectedIndexThree)}
     >
-      {recomendedImagesTwo.map((img, index) => (
+      {HomePageData.recomendedImagesTwo.map((img, index) => (
         <Carousel.Item key={index}>
           <img className="carouselimage" src={img.src} alt={img.alt} />
         </Carousel.Item>
@@ -188,7 +115,7 @@ function HomePage() {
   );
 
   const handleclickThree = () => {
-    setCarouselIndexFour((prevIndex) => (prevIndex + 1) % popularImages.length);
+    setCarouselIndexFour((prevIndex) => (prevIndex + 1) % HomePageData.popularImages.length);
   };
 
   const renderCarouselFour = () => (
@@ -199,7 +126,7 @@ function HomePage() {
       activeIndex={carouselIndexFour}
       onSelect={(selectedIndexFour) => setCarouselIndexFour(selectedIndexFour)}
     >
-      {popularImages.map((img, index) => (
+      {HomePageData.popularImages.map((img, index) => (
         <Carousel.Item key={index}>
           <img className="carouselimage" src={img.src} alt={img.alt} />
         </Carousel.Item>
@@ -207,8 +134,8 @@ function HomePage() {
     </Carousel>
   );
 
-   const handleclickFour = () => {
-    setCarouselIndexFive((prevIndex) => (prevIndex + 1) % popularImagesTwo.length);
+  const handleclickFour = () => {
+    setCarouselIndexFive((prevIndex) => (prevIndex + 1) % HomePageData.popularImagesTwo.length);
   };
 
   const renderCarouselFive = () => (
@@ -219,7 +146,7 @@ function HomePage() {
       activeIndex={carouselIndexFive}
       onSelect={(selectedIndexFive) => setCarouselIndexFive(selectedIndexFive)}
     >
-      {popularImagesTwo.map((img, index) => (
+      {HomePageData.popularImagesTwo.map((img, index) => (
         <Carousel.Item key={index}>
           <img className="carouselimage" src={img.src} alt={img.alt} />
         </Carousel.Item>
@@ -252,7 +179,7 @@ function HomePage() {
                 <b>BACK TO SCHOOL</b>
               </p>
               <h2 className="schooltitle">
-                <b>{slides[activeIndex]}</b>
+                <b>{HomePageData.slides[activeIndex]}</b>
               </h2>
               <p className="studenttext">for our student community</p>
               <div className="py-2">
@@ -273,7 +200,7 @@ function HomePage() {
               </div>
               <div className="">
                 <div className="d-flex gap-3  pagination">
-                  {slides.map((_, index) => (
+                  {HomePageData.slides.map((_, index) => (
                     <div
                       key={index}
                       className={index === activeIndex ? "circle active" : "circle"}
@@ -291,7 +218,7 @@ function HomePage() {
                 <small>Based on sales this week</small>
               </p>
               <div className="imagecontent carousel-wrapper">{renderCarousel()}</div>
-              <p className="booktitle">{carouselImages[carouselIndex]?.title}</p>
+              <p className="booktitle">{HomePageData.carouselImages[carouselIndex]?.title}</p>
               <p className="booktext">
                 <small>ADVENTURE, SCIENCE, COMEDY</small>
               </p>
@@ -454,7 +381,7 @@ function HomePage() {
         <Row className="py-5">
           <Col xs={12} md={3} className="mb-5 mb-md-0">
             <div className="d-flex flex-column align-items-center">
-              <SpecialCards imageForSales={book21}/>
+              <SpecialCards imageForSales={HomePageData.bookImages.book21} />
               <h4 className="specialcardstitle">Stay With Me</h4>
               <small className="specialcardsgenre">THRILLER</small>
               <div><b className="specialcardsmoney">$ 54.78</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-muted text-decoration-line-through">
@@ -464,7 +391,7 @@ function HomePage() {
           </Col>
           <Col xs={12} md={3} className="mb-5 mb-md-0">
             <div className="d-flex flex-column align-items-center">
-              <SpecialCards imageForSales={book22}/>
+              <SpecialCards imageForSales={HomePageData.bookImages.book22} />
               <h4 className="specialcardstitle">TIME</h4>
               <small className="specialcardsgenre">DRAMA, BIOGRAPHY</small>
               <div><b className="specialcardsmoney">$ 34.56</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-muted text-decoration-line-through">
@@ -474,7 +401,7 @@ function HomePage() {
           </Col>
           <Col xs={12} md={3} className="mb-5 mb-md-0">
             <div className="d-flex flex-column align-items-center">
-              <SpecialCards imageForSales={book23}/>
+              <SpecialCards imageForSales={HomePageData.bookImages.book23} />
               <h4 className="specialcardstitle">Green Thumb Poppy</h4>
               <small className="specialcardsgenre">THRILLER</small>
               <div><b className="specialcardsmoney">$ 14.56</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-muted text-decoration-line-through">
@@ -484,7 +411,7 @@ function HomePage() {
           </Col>
           <Col xs={12} md={3} className="mb-5 mb-md-0">
             <div className="d-flex flex-column align-items-center">
-              <SpecialCards imageForSales={book24}/>
+              <SpecialCards imageForSales={HomePageData.bookImages.book24} />
               <h4 className="specialcardstitle">Love Story</h4>
               <small className="specialcardsgenre">DRAMA, BIOGRAPHY</small>
               <div><b className="specialcardsmoney">$ 76.12</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-muted text-decoration-line-through">
@@ -501,7 +428,7 @@ function HomePage() {
         <Row className="gap-5">
           <Col xs={12} md={2} className="d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
             <div className="d-flex flex-column align-items-center align-items-md-start">
-              <div className="salescard"><img src={book25} className="salesimg" /><div className="sales">50%</div></div>
+              <div className="salescard"><img src={HomePageData.bookImages.book25} className="salesimg" /><div className="sales">50%</div></div>
               <h4 className="specialcardstitle salestitle">Hearts Aglow</h4>
               <small className="specialcardsgenre">ADVENTURE, SURVIVAL</small>
               <div className="d-flex justify-content-between align-items-center mt-2 w-100">
@@ -520,7 +447,7 @@ function HomePage() {
           </Col>
           <Col xs={12} md={2} className="d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
             <div className="d-flex flex-column align-items-center align-items-md-start">
-              <div className="salescard"><img src={book26} className="salesimg" /><div className="sales">50%</div></div>
+              <div className="salescard"><img src={HomePageData.bookImages.book26} className="salesimg" /><div className="sales">50%</div></div>
               <h4 className="specialcardstitle salestitle">The Story of The Tree</h4>
               <small className="specialcardsgenre">ADVENTURE, SURVIVAL</small>
               <div className="d-flex justify-content-between align-items-center mt-2 w-100">
@@ -539,7 +466,7 @@ function HomePage() {
           </Col>
           <Col xs={12} md={2} className="d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
             <div className="d-flex flex-column align-items-center align-items-md-start">
-              <div className="salescard"><img src={book27} className="salesimg" /><div className="sales">50%</div></div>
+              <div className="salescard"><img src={HomePageData.bookImages.book27} className="salesimg" /><div className="sales">50%</div></div>
               <h4 className="specialcardstitle salestitle">Beneath The Sea</h4>
               <small className="specialcardsgenre">ADVENTURE, SURVIVAL</small>
               <div className="d-flex justify-content-between align-items-center mt-2 w-100">
@@ -558,7 +485,7 @@ function HomePage() {
           </Col>
           <Col xs={12} md={2} className="d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
             <div className="d-flex flex-column align-items-center align-items-md-start">
-              <div className="salescard"><img src={book28} className="salesimg" /><div className="sales">50%</div></div>
+              <div className="salescard"><img src={HomePageData.bookImages.book28} className="salesimg" /><div className="sales">50%</div></div>
               <h4 className="specialcardstitle salestitle">Where Truth hides</h4>
               <small className="specialcardsgenre">ADVENTURE, SURVIVAL</small>
               <div className="d-flex justify-content-between align-items-center mt-2 w-100">
@@ -577,7 +504,7 @@ function HomePage() {
           </Col>
           <Col xs={12} md={2} className="d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
             <div className="d-flex flex-column align-items-center align-items-md-start">
-              <div className="salescard"><img src={book29} className="salesimg" /><div className="sales">50%</div></div>
+              <div className="salescard"><img src={HomePageData.bookImages.book29} className="salesimg" /><div className="sales">50%</div></div>
               <h4 className="specialcardstitle salestitle">Walk Into the Shadow</h4>
               <small className="specialcardsgenre">ADVENTURE, SURVIVAL</small>
               <div className="d-flex justify-content-between align-items-center mt-2 w-100">
@@ -596,6 +523,76 @@ function HomePage() {
           </Col>
         </Row>
       </Container>
+      <div className="py-5"></div>
+      <div className="bigrectangle py-5">
+        <Container>
+          <Row lassName="d-flex flex-column align-items-center gap-4 d-md-block">
+            <Col xs={12} md={8} className="d-flex flex-column align-items-center align-items-md-start mb-4 mb-md-0">
+              <div className="divtext">
+                <h3 className="featuredtitle">Featured Books</h3>
+                <p className="featuredtext">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore</p>
+                <div className="featuredbookcard">
+                  <div className="featuredbook">
+                    <img src={selectedBook.image} alt="Selected book" />
+                  </div>
+
+                  <div className="featuredbookdescription">
+                    <div className="featuredbookiconandtitle">
+                      <FontAwesomeIcon icon={faBookmark} className="bookmarkicon" />
+                      <div className="starcircle"><FontAwesomeIcon icon={faStar} className="starbookmarkicon" /></div>
+                      <div className="featuredbooktexts">
+                        <p className="featuredbooktitle">{selectedBook.title}</p>
+                        <p className="featuredbookgenre">{selectedBook.genre}</p>
+                      </div>
+                    </div>
+                    <p className="synopsis">Synopsis</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div className="featuredbookauthorblock">
+                      <div className="featuredbookauthoranddate">
+                        <p className="featuredbookwrittenby">Writen by</p>
+                        <p className="featuredbookauthor">{selectedBook.author}</p>
+                      </div>
+                      <div className="featuredbookauthoranddate">
+                        <p className="featuredbookwrittenby">Year</p>
+                        <p className="featuredbookauthor">{selectedBook.year}</p>
+                      </div>
+                    </div>
+                    <div className="d-flex gap-5 pt-4">
+                      <div className="pt-2">
+                        <b className="moneysize">{selectedBook.price}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span className="text-decoration-line-through moneysize2">{selectedBook.oldPrice}</span>
+                      </div>&nbsp;
+                      <Button className="buttoncolorhome py-2 px-4">
+                        <FontAwesomeIcon icon={faCartShopping} className="purchaseicon" />ADD
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Col>
+            <Col xs={12} md={4} className="ml-auto d-flex justify-content-end">
+              <div className="row row-cols-2">
+                {HomePageData.books.map((book) => (
+                  <div key={book.id} className="col mb-4">
+                    <div
+                      className="featuredbookimage"
+                      onClick={() => handleImageClick(book)}
+                    >
+                      <img
+                        src={book.image}
+                        alt={book.title}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Col>
+
+          </Row>
+        </Container>
+      </div>
     </div>
   );
 }
