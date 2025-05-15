@@ -22,6 +22,37 @@ import photo2 from "../images/Pinata4.jpg";
 import photo3 from "../images/Pinata3.jpg";
 import photo4 from "../images/Pinata6.jpg";
 import photo5 from "../images/Pinata7.jpg";
+import book1 from "../images/book1.png";
+import book2 from "../images/book2.png";
+import book3 from "../images/book3.png";
+import book4 from "../images/book4.png";
+import book5 from "../images/book5.png";
+import book6 from "../images/book6.png";
+import book7 from "../images/book7.png";
+// import book8 from "../images/book8.png";
+import book9 from "../images/book9.png";
+import book10 from "../images/book10.png";
+import book11 from "../images/book11.png";
+import book12 from "../images/book12.png";
+import book13 from "../images/book13.png";
+import book14 from "../images/book14.png";
+import book15 from "../images/book15.png";
+import book16 from "../images/book16.png";
+import book17 from "../images/book17.png";
+import book18 from "../images/book18.png";
+import book19 from "../images/book19.png";
+import book20 from "../images/book20.png";
+import book21 from "../images/book21.png";
+import book22 from "../images/book22.png";
+import book23 from "../images/book23.png";
+import book24 from "../images/book24.png";
+import book25 from "../images/book25.png";
+import book26 from "../images/book26.png";
+import book27 from "../images/book27.png";
+import book28 from "../images/book28.png";
+import book29 from "../images/book29.png";
+
+
 
 const slides = [
   "Special 50% Off",
@@ -31,23 +62,51 @@ const slides = [
 ];
 
 const carouselImages = [
-  { src: photo1, alt: "Photo 1", title: "Cat on Radiator" },
-  { src: photo2, alt: "Photo 2", title: "Cat on Tree" },
-  { src: photo3, alt: "Photo 3", title: "Cat on Desk" },
-  { src: photo4, alt: "Photo 4", title: "Cat in House" },
-  { src: photo5, alt: "Photo 5", title: "Cat in Box" },
+  { src: book1, alt: "Photo 1", title: "Soul" },
+  { src: book2, alt: "Photo 2", title: "The Story of One Love" },
+  { src: book3, alt: "Photo 3", title: "Silence" },
+  { src: book5, alt: "Photo 4", title: "Abandoned Kingdom" },
+  { src: book7, alt: "Photo 5", title: "The Story of a Girl" },
+];
+
+const recomendedImages = [
+  { src: book9, alt: "Photo 1" },
+  { src: book10, alt: "Photo 2" },
+  { src: book11, alt: "Photo 3" }
+];
+
+const recomendedImagesTwo = [
+  { src: book12, alt: "Photo 1" },
+  { src: book13, alt: "Photo 2" },
+  { src: book14, alt: "Photo 3" }
+];
+
+const popularImages = [
+  { src: book15, alt: "Photo 1" },
+  { src: book16, alt: "Photo 2" },
+  { src: book17, alt: "Photo 3" }
+];
+
+const popularImagesTwo = [
+  { src: book18, alt: "Photo 1" },
+  { src: book19, alt: "Photo 2" },
+  { src: book20, alt: "Photo 3" }
 ];
 
 const cardImages = [
-  { src: photo1, alt: "Photo 1", title: "REWORK" },
-  { src: photo2, alt: "Photo 2", title: "SECONDS [PART 1]" },
-  { src: photo3, alt: "Photo 3", title: "Terrible Madness" }
+  { src: book3, alt: "Photo 1", title: "Silence" },
+  { src: book4, alt: "Photo 2", title: "The Story of The Boy" },
+  { src: book6, alt: "Photo 3", title: "Book of Prayer" }
 ]
 
 function HomePage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [carouselIndexTwo, setCarouselIndexTwo] = useState(0);
+  const [carouselIndexThree, setCarouselIndexThree] = useState(0);
+  const [carouselIndexFour, setCarouselIndexFour] = useState(0);
+  const [carouselIndexFive, setCarouselIndexFive] = useState(0);
 
   const getVisibleCards = () => {
     const total = cardImages.length;
@@ -68,11 +127,8 @@ function HomePage() {
     setCurrentIndex((prev) => (prev - 1 + cardImages.length) % cardImages.length);
   };
 
-
-
-
   const handleArrowClick = () => {
-    setCarouselIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
+    setCarouselIndex((prevIndex) => (prevIndex + 1) % recomendedImages.length);
   };
 
   const renderCarousel = () => (
@@ -84,6 +140,86 @@ function HomePage() {
       onSelect={(selectedIndex) => setCarouselIndex(selectedIndex)}
     >
       {carouselImages.map((img, index) => (
+        <Carousel.Item key={index}>
+          <img className="carouselimage" src={img.src} alt={img.alt} />
+        </Carousel.Item>
+      ))}
+    </Carousel>
+  );
+
+  const handleclick = () => {
+    setCarouselIndexTwo((prevIndex) => (prevIndex + 1) % recomendedImages.length);
+  };
+
+  const renderCarouselTwo = () => (
+    <Carousel
+      controls={false}
+      indicators={false}
+      interval={3000}
+      activeIndex={carouselIndexTwo}
+      onSelect={(selectedIndexTwo) => setCarouselIndexTwo(selectedIndexTwo)}
+    >
+      {recomendedImages.map((img, index) => (
+        <Carousel.Item key={index}>
+          <img className="carouselimage" src={img.src} alt={img.alt} />
+        </Carousel.Item>
+      ))}
+    </Carousel>
+  );
+
+  const handleclickTwo = () => {
+    setCarouselIndexThree((prevIndex) => (prevIndex + 1) % recomendedImagesTwo.length);
+  };
+
+  const renderCarouselThree = () => (
+    <Carousel
+      controls={false}
+      indicators={false}
+      interval={3000}
+      activeIndex={carouselIndexThree}
+      onSelect={(selectedIndexThree) => setCarouselIndexThree(selectedIndexThree)}
+    >
+      {recomendedImagesTwo.map((img, index) => (
+        <Carousel.Item key={index}>
+          <img className="carouselimage" src={img.src} alt={img.alt} />
+        </Carousel.Item>
+      ))}
+    </Carousel>
+  );
+
+  const handleclickThree = () => {
+    setCarouselIndexFour((prevIndex) => (prevIndex + 1) % popularImages.length);
+  };
+
+  const renderCarouselFour = () => (
+    <Carousel
+      controls={false}
+      indicators={false}
+      interval={3000}
+      activeIndex={carouselIndexFour}
+      onSelect={(selectedIndexFour) => setCarouselIndexFour(selectedIndexFour)}
+    >
+      {popularImages.map((img, index) => (
+        <Carousel.Item key={index}>
+          <img className="carouselimage" src={img.src} alt={img.alt} />
+        </Carousel.Item>
+      ))}
+    </Carousel>
+  );
+
+   const handleclickFour = () => {
+    setCarouselIndexFive((prevIndex) => (prevIndex + 1) % popularImagesTwo.length);
+  };
+
+  const renderCarouselFive = () => (
+    <Carousel
+      controls={false}
+      indicators={false}
+      interval={3000}
+      activeIndex={carouselIndexFive}
+      onSelect={(selectedIndexFive) => setCarouselIndexFive(selectedIndexFive)}
+    >
+      {popularImagesTwo.map((img, index) => (
         <Carousel.Item key={index}>
           <img className="carouselimage" src={img.src} alt={img.alt} />
         </Carousel.Item>
@@ -202,14 +338,17 @@ function HomePage() {
                 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`}
               </p>
               <div className="d-flex gap-4 align-items-center justify-content-center">
-                <div className="rectangle1">{renderCarousel()}</div>
-                <div className="rectangle1">{renderCarousel()}</div>
+                <div className="rectangle1">{renderCarouselTwo()}</div>
+                <div className="rectangle1">{renderCarouselThree()}</div>
                 <div className="arrowiconcircle">
                   <FontAwesomeIcon
                     icon={faChevronRight}
                     size="2xl"
                     className="arrowicon"
-                    onClick={handleArrowClick}
+                    onClick={() => {
+                      handleclick();
+                      handleclickTwo();
+                    }}
                   /></div>
               </div>
             </div>
@@ -223,14 +362,17 @@ function HomePage() {
                 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`}
               </p>
               <div className="d-flex gap-4 align-items-center justify-content-center">
-                <div className="rectangle1">{renderCarousel()}</div>
-                <div className="rectangle1">{renderCarousel()}</div>
+                <div className="rectangle1">{renderCarouselFour()}</div>
+                <div className="rectangle1">{renderCarouselFive()}</div>
                 <div className="arrowiconcircle">
                   <FontAwesomeIcon
                     icon={faChevronRight}
                     size="2xl"
                     className="arrowicon"
-                    onClick={handleArrowClick}
+                    onClick={() => {
+                      handleclickThree();
+                      handleclickFour();
+                    }}
                   /></div>
               </div>
             </div>
@@ -312,8 +454,8 @@ function HomePage() {
         <Row className="py-5">
           <Col xs={12} md={3} className="mb-5 mb-md-0">
             <div className="d-flex flex-column align-items-center">
-              <SpecialCards />
-              <h4 className="specialcardstitle">SECONDS</h4>
+              <SpecialCards imageForSales={book21}/>
+              <h4 className="specialcardstitle">Stay With Me</h4>
               <small className="specialcardsgenre">THRILLER</small>
               <div><b className="specialcardsmoney">$ 54.78</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-muted text-decoration-line-through">
                 $70.00
@@ -322,8 +464,8 @@ function HomePage() {
           </Col>
           <Col xs={12} md={3} className="mb-5 mb-md-0">
             <div className="d-flex flex-column align-items-center">
-              <SpecialCards />
-              <h4 className="specialcardstitle">REWORK</h4>
+              <SpecialCards imageForSales={book22}/>
+              <h4 className="specialcardstitle">TIME</h4>
               <small className="specialcardsgenre">DRAMA, BIOGRAPHY</small>
               <div><b className="specialcardsmoney">$ 34.56</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-muted text-decoration-line-through">
                 $50.00
@@ -332,8 +474,8 @@ function HomePage() {
           </Col>
           <Col xs={12} md={3} className="mb-5 mb-md-0">
             <div className="d-flex flex-column align-items-center">
-              <SpecialCards />
-              <h4 className="specialcardstitle">Such a Fun Age</h4>
+              <SpecialCards imageForSales={book23}/>
+              <h4 className="specialcardstitle">Green Thumb Poppy</h4>
               <small className="specialcardsgenre">THRILLER</small>
               <div><b className="specialcardsmoney">$ 14.56</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-muted text-decoration-line-through">
                 $20.00
@@ -342,8 +484,8 @@ function HomePage() {
           </Col>
           <Col xs={12} md={3} className="mb-5 mb-md-0">
             <div className="d-flex flex-column align-items-center">
-              <SpecialCards />
-              <h4 className="specialcardstitle">Battle Drive</h4>
+              <SpecialCards imageForSales={book24}/>
+              <h4 className="specialcardstitle">Love Story</h4>
               <small className="specialcardsgenre">DRAMA, BIOGRAPHY</small>
               <div><b className="specialcardsmoney">$ 76.12</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-muted text-decoration-line-through">
                 $99.00
@@ -359,8 +501,8 @@ function HomePage() {
         <Row className="gap-5">
           <Col xs={12} md={2} className="d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
             <div className="d-flex flex-column align-items-center align-items-md-start">
-              <div className="salescard"><div className="sales">50%</div></div>
-              <h4 className="specialcardstitle salestitle">Battle Drive</h4>
+              <div className="salescard"><img src={book25} className="salesimg" /><div className="sales">50%</div></div>
+              <h4 className="specialcardstitle salestitle">Hearts Aglow</h4>
               <small className="specialcardsgenre">ADVENTURE, SURVIVAL</small>
               <div className="d-flex justify-content-between align-items-center mt-2 w-100">
                 <div className="starcolor">
@@ -378,8 +520,8 @@ function HomePage() {
           </Col>
           <Col xs={12} md={2} className="d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
             <div className="d-flex flex-column align-items-center align-items-md-start">
-              <div className="salescard"><div className="sales">50%</div></div>
-              <h4 className="specialcardstitle salestitle">Battle Drive</h4>
+              <div className="salescard"><img src={book26} className="salesimg" /><div className="sales">50%</div></div>
+              <h4 className="specialcardstitle salestitle">The Story of The Tree</h4>
               <small className="specialcardsgenre">ADVENTURE, SURVIVAL</small>
               <div className="d-flex justify-content-between align-items-center mt-2 w-100">
                 <div className="starcolor">
@@ -397,8 +539,8 @@ function HomePage() {
           </Col>
           <Col xs={12} md={2} className="d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
             <div className="d-flex flex-column align-items-center align-items-md-start">
-              <div className="salescard"><div className="sales">50%</div></div>
-              <h4 className="specialcardstitle salestitle">Battle Drive</h4>
+              <div className="salescard"><img src={book27} className="salesimg" /><div className="sales">50%</div></div>
+              <h4 className="specialcardstitle salestitle">Beneath The Sea</h4>
               <small className="specialcardsgenre">ADVENTURE, SURVIVAL</small>
               <div className="d-flex justify-content-between align-items-center mt-2 w-100">
                 <div className="starcolor">
@@ -416,8 +558,8 @@ function HomePage() {
           </Col>
           <Col xs={12} md={2} className="d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
             <div className="d-flex flex-column align-items-center align-items-md-start">
-              <div className="salescard"><div className="sales">50%</div></div>
-              <h4 className="specialcardstitle salestitle">Battle Drive</h4>
+              <div className="salescard"><img src={book28} className="salesimg" /><div className="sales">50%</div></div>
+              <h4 className="specialcardstitle salestitle">Where Truth hides</h4>
               <small className="specialcardsgenre">ADVENTURE, SURVIVAL</small>
               <div className="d-flex justify-content-between align-items-center mt-2 w-100">
                 <div className="starcolor">
@@ -435,8 +577,8 @@ function HomePage() {
           </Col>
           <Col xs={12} md={2} className="d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
             <div className="d-flex flex-column align-items-center align-items-md-start">
-              <div className="salescard"><div className="sales">50%</div></div>
-              <h4 className="specialcardstitle salestitle">Battle Drive</h4>
+              <div className="salescard"><img src={book29} className="salesimg" /><div className="sales">50%</div></div>
+              <h4 className="specialcardstitle salestitle">Walk Into the Shadow</h4>
               <small className="specialcardsgenre">ADVENTURE, SURVIVAL</small>
               <div className="d-flex justify-content-between align-items-center mt-2 w-100">
                 <div className="starcolor">
