@@ -2,7 +2,6 @@ import NavbarScroll from "../Composants/Navbar";
 import { Container, Row, Col } from "react-bootstrap";
 import './BookPage.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Footer from "../Composants/Footerooter";
 
 import {
   faTruckFast,
@@ -30,32 +29,6 @@ function Feature({ icon, title, subtitle }) {
 function BookPage() {
   return (
     <div>
-      <NavbarScroll />
-
-      <Container>
-        <Row className="py-5">
-          <Feature
-            icon={faTruckFast}
-            title="Quick Delivery"
-            subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-          />
-          <Feature
-            icon={faShield}
-            title="Secure Payment"
-            subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-          />
-          <Feature
-            icon={faThumbsUp}
-            title="Best Quality"
-            subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-          />
-          <Feature
-            icon={faStar}
-            title="Return Guarantee"
-            subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-          />
-        </Row>
-      </Container>
       <div className="newsletter-section text-white py-4 px-3 mb-4">
         <Container>
           <Row className="align-items-center">
@@ -81,8 +54,6 @@ function BookPage() {
           </Row>
         </Container>
       </div>
-
-      <Footer />
     </div>
   );
 }

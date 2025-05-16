@@ -21,6 +21,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import HomePageData from "../Composants/Data/HomePageData";
+import BookPage from "./BookPage";
 
 function HomePage() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -643,6 +644,7 @@ function HomePage() {
         </Row>
       </Container>
       <div className="py-4"></div>
+      <BookPage />
       <Footer/>
     </div>
   );
