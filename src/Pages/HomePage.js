@@ -386,7 +386,7 @@ function HomePage() {
             <div className="d-flex flex-column align-items-center">
               <SpecialCards imageForSales={HomePageData.bookImages.book21} />
               <h4 className="specialcardstitle">Stay With Me</h4>
-              <small className="specialcardsgenre">THRILLER</small>
+              <small className="specialcardsgenre">ROMANCE, DRAMA</small>
               <div><b className="specialcardsmoney">$ 54.78</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-muted text-decoration-line-through">
                 $70.00
               </span></div>
@@ -396,7 +396,7 @@ function HomePage() {
             <div className="d-flex flex-column align-items-center">
               <SpecialCards imageForSales={HomePageData.bookImages.book22} />
               <h4 className="specialcardstitle">TIME</h4>
-              <small className="specialcardsgenre">DRAMA, BIOGRAPHY</small>
+              <small className="specialcardsgenre">THRILLER, ACTION</small>
               <div><b className="specialcardsmoney">$ 34.56</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-muted text-decoration-line-through">
                 $50.00
               </span></div>
@@ -406,7 +406,7 @@ function HomePage() {
             <div className="d-flex flex-column align-items-center">
               <SpecialCards imageForSales={HomePageData.bookImages.book23} />
               <h4 className="specialcardstitle">Green Thumb Poppy</h4>
-              <small className="specialcardsgenre">THRILLER</small>
+              <small className="specialcardsgenre">ADVENTURE</small>
               <div><b className="specialcardsmoney">$ 14.56</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-muted text-decoration-line-through">
                 $20.00
               </span></div>
@@ -416,7 +416,7 @@ function HomePage() {
             <div className="d-flex flex-column align-items-center">
               <SpecialCards imageForSales={HomePageData.bookImages.book24} />
               <h4 className="specialcardstitle">Love Story</h4>
-              <small className="specialcardsgenre">DRAMA, BIOGRAPHY</small>
+              <small className="specialcardsgenre">ROMANCE</small>
               <div><b className="specialcardsmoney">$ 76.12</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-muted text-decoration-line-through">
                 $99.00
               </span></div>
@@ -433,7 +433,7 @@ function HomePage() {
             <div className="d-flex flex-column align-items-center align-items-md-start">
               <div className="salescard"><img src={HomePageData.bookImages.book25} className="salesimg" /><div className="sales">50%</div></div>
               <h4 className="specialcardstitle salestitle">Hearts Aglow</h4>
-              <small className="specialcardsgenre">ADVENTURE, SURVIVAL</small>
+              <small className="specialcardsgenre">ROMANCE, THRILLER</small>
               <div className="d-flex justify-content-between align-items-center mt-2 w-100">
                 <div className="starcolor">
                   <FontAwesomeIcon icon={faStar} /> &nbsp; 4.7
@@ -452,7 +452,7 @@ function HomePage() {
             <div className="d-flex flex-column align-items-center align-items-md-start">
               <div className="salescard"><img src={HomePageData.bookImages.book26} className="salesimg" /><div className="sales">50%</div></div>
               <h4 className="specialcardstitle salestitle">The Story of The Tree</h4>
-              <small className="specialcardsgenre">ADVENTURE, SURVIVAL</small>
+              <small className="specialcardsgenre">LIVRES POUR ENFANTS</small>
               <div className="d-flex justify-content-between align-items-center mt-2 w-100">
                 <div className="starcolor">
                   <FontAwesomeIcon icon={faStar} /> &nbsp; 4.7
@@ -471,7 +471,7 @@ function HomePage() {
             <div className="d-flex flex-column align-items-center align-items-md-start">
               <div className="salescard"><img src={HomePageData.bookImages.book27} className="salesimg" /><div className="sales">50%</div></div>
               <h4 className="specialcardstitle salestitle">Beneath The Sea</h4>
-              <small className="specialcardsgenre">ADVENTURE, SURVIVAL</small>
+              <small className="specialcardsgenre">LIVRES POUR ENFANTS</small>
               <div className="d-flex justify-content-between align-items-center mt-2 w-100">
                 <div className="starcolor">
                   <FontAwesomeIcon icon={faStar} /> &nbsp; 4.7
@@ -490,7 +490,7 @@ function HomePage() {
             <div className="d-flex flex-column align-items-center align-items-md-start">
               <div className="salescard"><img src={HomePageData.bookImages.book28} className="salesimg" /><div className="sales">50%</div></div>
               <h4 className="specialcardstitle salestitle">Where Truth hides</h4>
-              <small className="specialcardsgenre">ADVENTURE, SURVIVAL</small>
+              <small className="specialcardsgenre">THRILLER, HORROR, DRAMA</small>
               <div className="d-flex justify-content-between align-items-center mt-2 w-100">
                 <div className="starcolor">
                   <FontAwesomeIcon icon={faStar} /> &nbsp; 4.7
@@ -509,7 +509,7 @@ function HomePage() {
             <div className="d-flex flex-column align-items-center align-items-md-start">
               <div className="salescard"><img src={HomePageData.bookImages.book29} className="salesimg" /><div className="sales">50%</div></div>
               <h4 className="specialcardstitle salestitle">Walk Into the Shadow</h4>
-              <small className="specialcardsgenre">ADVENTURE, SURVIVAL</small>
+              <small className="specialcardsgenre">FANTASY, ROMANCE, DRAMA</small>
               <div className="d-flex justify-content-between align-items-center mt-2 w-100">
                 <div className="starcolor">
                   <FontAwesomeIcon icon={faStar} /> &nbsp; 4.7
