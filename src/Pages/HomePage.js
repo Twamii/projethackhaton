@@ -1,6 +1,8 @@
 import { useState } from "react";
 import NavbarScroll from "../Composants/Navbar";
 import CountdownTest from "../Composants/Countdown";
+import Testimony from "../Composants/Testimony";
+import Footer from "../Composants/Footer";
 import ButtonTest from "../Composants/Button/ButtonTest";
 import SpecialCards from "../Composants/Cards/Cards";
 import { Container, Row, Col, Button, Carousel, Card } from "react-bootstrap";
@@ -536,7 +538,6 @@ function HomePage() {
                   <div className="featuredbook">
                     <img src={selectedBook.image} alt="Selected book" />
                   </div>
-
                   <div className="featuredbookdescription">
                     <div className="featuredbookiconandtitle">
                       <FontAwesomeIcon icon={faBookmark} className="bookmarkicon" />
@@ -589,10 +590,60 @@ function HomePage() {
                 ))}
               </div>
             </Col>
-
           </Row>
         </Container>
       </div>
+      <div className="py-5"></div>
+      <Testimony />
+      <div className="py-5"></div>
+      <Container>
+        <Row className="py-5">
+          <Col>
+            <h3 className="salesbigtitle text-center text-md-start">Latest News</h3>
+            <p className="latestnews-text text-center text-md-start">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12} md={4} className="d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
+            <div className="d-flex flex-column align-items-center align-items-md-start latestnews-card">
+              <div className="latestnews-imgcard"><img src={HomePageData.bookImages.book35} className="latestnews-img" /></div>
+              <h4 className="latestnews-title">Why reading is important for our children?</h4>
+              <p className="latestnews-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
+              <small className="latestnews-continue">Continue reading</small>
+              <div className="latestnews-end">
+                <p className="latestnews-author">Lidya Humble</p>
+                <p className="latestnews-description">2 days ago</p>
+              </div>
+            </div>
+          </Col>
+           <Col xs={12} md={4} className="d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
+            <div className="d-flex flex-column align-items-center align-items-md-start latestnews-card">
+              <div className="latestnews-imgcard"><img src={HomePageData.bookImages.book36} className="latestnews-img" /></div>
+              <h4 className="latestnews-title">Benefits of reading: Smart, Diligent, Happy</h4>
+              <p className="latestnews-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
+              <small className="latestnews-continue">Continue reading</small>
+              <div className="latestnews-end">
+                <p className="latestnews-author">Steffanny William</p>
+                <p className="latestnews-description">5 August 2020</p>
+              </div>
+            </div>
+          </Col>
+           <Col xs={12} md={4} className="d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
+            <div className="d-flex flex-column align-items-center align-items-md-start latestnews-card">
+              <div className="latestnews-imgcard"><img src={HomePageData.bookImages.book37} className="latestnews-img" /></div>
+              <h4 className="latestnews-title">What books you should read in 2020?</h4>
+              <p className="latestnews-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
+              <small className="latestnews-continue">Continue reading</small>
+              <div className="latestnews-end">
+                <p className="latestnews-author">James Wong</p>
+                <p className="latestnews-description">3 August 2020</p>
+              </div>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+      <div className="py-4"></div>
+      <Footer/>
     </div>
   );
 }

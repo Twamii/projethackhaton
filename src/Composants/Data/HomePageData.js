@@ -32,6 +32,9 @@ import book31 from "../../images/book31.png";
 import book32 from "../../images/book32.png";
 import book33 from "../../images/book33.png";
 import book34 from "../../images/book34.png";
+import book35 from "../../images/book35.png";
+import book36 from "../../images/book36.png";
+import book37 from "../../images/book37.png";
 
 
 const bookImages = {
@@ -67,7 +70,10 @@ const bookImages = {
   book31,
   book32,
   book33,
-  book34
+  book34,
+  book35,
+  book36,
+  book37
 };
 
 const books = [
